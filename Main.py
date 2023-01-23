@@ -35,7 +35,9 @@ def submit_login_info(username, password, window):
         passwordElement.send_keys(password)
 
         #click submit
-        submitElement = driver.find_element(By.ID, 'a-autoid-0').click()
+        submitElement = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "a-button-input")))
+        submitElement.submit()
+        
     except Exception as e:
         print("An error occurred: ", e)
 
